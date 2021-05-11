@@ -1,19 +1,20 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render
-from .forms import PostForm
+from django.shortcuts import render, redirect
+from .forms import Contacts
 
 def index(request):
-    return render(request, 'app/index.html')
+    form = Contacts()
+    return render(request,'app/index.html',{'form': form})
 
 
 def create(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = Contacts(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
-    form = PostForm()
+            return render(request,'app/index.html')
+    form = Contacts()
 
     return render(request,'app/index.html',{'form': form})
 

@@ -2,21 +2,23 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from PIL import Image
-from django import forms
+
 import uuid
 
-class Person(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+class Person(models.Model) :
     name = models.CharField(max_length=200)
     role_in_team = models.CharField(max_length=10)
     hobbies = models.CharField(max_length=200)
     official_pix = models.ImageField()
+    date_time_added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self) :
         return self.name
 
-class Experiece(models.Model) :
-    id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
+
+class Experience(models.Model) :
     name = models.ForeignKey(Person, on_delete=models.CASCADE)
     from_date = models.CharField(max_length=200)
     to_date = models.DateField()
@@ -27,28 +29,27 @@ class Experiece(models.Model) :
         return self.role
 
 
-class Education(models.Model):
+class Education(models.Model) :
     name = models.ForeignKey(Person, on_delete=models.CASCADE)
     year = models.DateField()
     certification = models.CharField(max_length=200)
     class_of_degree = models.CharField(max_length=200)
-    name = models.ForeignKey(Person, on_delete=models.CASCADE)
 
     def __str__(self) :
         return self.certification
 
-class Skills(models.Model):
+
+class Skills(models.Model) :
     name = models.ForeignKey(Person, on_delete=models.CASCADE)
     skill1 = models.DateField()
     skill2 = models.CharField(max_length=200)
     skill3 = models.CharField(max_length=200)
-    name = models.ForeignKey(Person, on_delete=models.CASCADE)
 
     def __str__(self) :
         return self.certification
 
-class Bios(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+class Bios(models.Model) :
     name = models.ForeignKey(Person, on_delete=models.CASCADE)
     email = models.EmailField(max_length=200)
     home_add = models.CharField(max_length=200)
@@ -65,8 +66,8 @@ class Bios(models.Model):
         now = timezone.now()
         return now - dob
 
-class PhotoGallery(models.Model):
-    id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
+
+class PhotoGallery(models.Model) :
     name = models.ForeignKey(Person, on_delete=models.CASCADE)
     pix1 = models.ImageField()
     pix2 = models.ImageField()
@@ -75,11 +76,9 @@ class PhotoGallery(models.Model):
     pix5 = models.ImageField()
 
 
-class Contacts(forms.Form) :
-    emails = forms.EmailField()
-    message = forms.TextField()
-
+class Contacts(models.Model) :
+    emails = models.EmailField(max_length=30)
+    message = models.CharField(max_length=30)
 
     def __str__(self) :
         return self.emails
-
