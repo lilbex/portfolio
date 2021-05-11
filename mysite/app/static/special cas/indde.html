@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      body{
+        font-family: 'Quicksand', sans-serif;
+      }
+    .rotate{
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        margin-left:0;
+        padding-left:0%;
+        margin-top:100px;
+        font-size: 20px;
+        font-family: 'Pacifico', cursive;
+      
+    }
+    
+    a{
+      transition-property: width;
+      transition-duration: 1s;
+      
+
+    }
+    a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+    }
+    a:hover{
+      background: #FFE4E1;
+      opacity: 0.5;
+      width: 70px;
+    }
+    .bottom-text{
+      font-size:20px;
+      margin-top:100px;
+      padding-left: 10px;
+    }
+    li{
+      list-style: none;
+    }
+    .crazy-div{
+      position:absolute;
+      z-index:1;
+      left: 60px;
+      top: 50px;
+    }
+    .crazy-div h2{
+      font-size: 50px;
+    }
+    .pitch-side{
+      position: relative;
+    }
+    .d-pix{
+      position:relative;
+      top: 100px;
+    }
+    .post-record{
+      position:relative;
+      top: 50px;
+    }
+    .blog-header{
+      font-weight: 800;
+    }
+    .ml{
+      position: relative;
+      right: 0px;
+      margin-right: opx;
+    }
+    .blog-font{
+      font-size: 25px;
+    }
+    
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-sm  justify-content-end pb-4 mr-5">
+  <ul class="navbar-nav ">
+    <li class="nav-item p-4">
+      <a class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="About Elias" href="#">About</a>
+    </li>
+    <li class="nav-item p-4">
+      <a class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="Contact Elias" href="#">Contact</a>
+    </li>
+    <li class="nav-item p-4">
+      <a class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="Read blog post" href="#">Blog</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid ml">
+  <div class="crazy-div"><h2>Elias Imokhai</h2></div>
+  <div class="row" >
+      <div class="col-sm-2 lean-space"></div>
+      <div class="col-sm-10">
+          <div class="row pitch-side" style="background: #FFE4E1">
+            <div class="col-sm-6">
+              
+              <div class="card d-pix">
+                <img class="img-responsive" src="{% static 'app/images/pix.jpeg' %}" class="img-fluid"  alt="">
+              </div>
+            </div>
+            <div class="col-sm-6">
+            <p class="rotate">soft­ware develoment</p>
+            <p class="bottom-text">I’m a web & soft­ware devel­op­er from Lagos, Nigeria.</p>
+            </div>
+            <div class="row m-5 post-record">
+              <div class="col-sm-12">
+                
+              <h3 class="blog-header">Recent Post</h3>
+              <ul>
+                <li class="blog-font"><time title="6 months, 15 days, 1 hour, and 33 minutes ago." datetime="2020-10-25T09:10:00+00:00">10:00</time>&nbsp Algorithm Simplified for beginners</li>
+                <li class="blog-font"><time title="6 months, 15 days, 1 hour, and 33 minutes ago." datetime="2020-10-25T09:10:00+00:00"> 5:00</time>&nbsp Linked list simpler than Rufiyat solution</li>
+                <li class="blog-font"><time title="6 months, 15 days, 1 hour, and 33 minutes ago." datetime="2020-10-25T09:10:00+00:00">10:00</time> &nbsp Nike is my new friend but Rofiyat is my crush</li>
+                <li class="blog-font"><time title="6 months, 15 days, 1 hour, and 33 minutes ago." datetime="2020-10-25T09:10:00+00:00">10:00</time>&nbsp but i still like Rofiyat because, i don't know</li>
+              </ul>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="row m-4">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10">
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="">
+          <a class="text-secondary" href="#"><li class="pb-4">Home</li></a>
+          <a class="text-secondary" href="#"><li class="pb-4">About</li></a>
+          <a class="text-secondary" href="#"><li class="pb-4">Contact</li></a>
+          <a class="text-black-50" href="#"><li class="pb-4">Privacy</li></a>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul>
+          <a class="text-secondary" href="#"><li class="pb-4">Github</li></a>
+          <a class="text-secondary" href="#"><li class="pb-4">Stackoverflow</li></a>
+          <a class="text-secondary" href="#"><li class="pb-4">Linkedin</li></a>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul>
+          <a class="text-secondary" href="#"><li class="pb-4">@Elias</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row pt-4 mt-4">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-11">
+    <div class="row">
+      <div class="col-sm-6"><p>Copyright &copy; Elias 2021 — More about this website</p></div>
+      <div class="col-sm-6"><p>Changelog 2.1.2 →</p></div></div>
+    </div>
+    
+</div>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+</body>
+</html>
