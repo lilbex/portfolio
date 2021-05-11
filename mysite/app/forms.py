@@ -1,7 +1,6 @@
-from django.forms import ModelForm
-from .models import Post
+from django import forms
 
-class PostForm(ModelForm):
-    class Meta:
-        model = PostForm
-        fields = '__all__'
+
+class Contacts(forms.Form) :
+    emails = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea(attrs={'width':"100%", 'cols' : "80", 'rows': "20", }))

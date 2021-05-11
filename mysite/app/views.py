@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-from .forms import PostForm
+from .forms import Contacts
 
 def index(request):
     return render(request, 'app/index.html')
@@ -9,11 +9,11 @@ def index(request):
 
 def create(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = Contacts(request.POST)
         if form.is_valid():
             form.save()
             return redirect('index')
-    form = PostForm()
+    form = Contacts()
 
     return render(request,'app/index.html',{'form': form})
 
