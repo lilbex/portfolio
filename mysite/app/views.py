@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 from .forms import Contacts
 
 def index(request):
-    return render(request, 'app/index.html')
+    form = Contacts()
+    return render(request,'app/index.html',{'form': form})
 
 
 def create(request):
@@ -12,7 +13,7 @@ def create(request):
         form = Contacts(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return render(request,'app/index.html')
     form = Contacts()
 
     return render(request,'app/index.html',{'form': form})
